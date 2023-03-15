@@ -2,13 +2,13 @@
   margin: 0;
   padding: 0;
   font-size: 30px;
-  font-weight: 900;
+  text-transform: uppercase;
+  font-family: 'Anton', sans-serif;
   box-sizing: border-box;
   color: var(--white);
-  background: var(--green);
-  --green: #3AAFA9;
-  --dark-green: #2B7A78;
-  --blue: #17252A;
+  background: var(--black);
+  --black: #1A1A1D;
+  --light-black: #4E4E50;
   --white: #FEFFFF;
 }
 
@@ -28,7 +28,6 @@ textarea {
 
 input {
   all: unset;
-  font-size: 20px;
 
 }
 
@@ -42,7 +41,7 @@ a {
 }
 
 ::placeholder {
-  color: var(--dark-green)
+  color: var(--light-black)
 }
 
 .App {

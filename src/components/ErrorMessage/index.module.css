@@ -9,7 +9,6 @@
 .text {
     text-align: center;
     text-transform: uppercase;
-    color: var(--blue);
 }
 
 .image {
