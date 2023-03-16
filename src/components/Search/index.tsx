@@ -13,6 +13,8 @@ const Search = ({ fetchWeatherByCity }: Props) => {
   const input = useRef<HTMLInputElement>(null);
 
   const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    event.stopPropagation();
+    event.preventDefault();
     const MAX_LENGTH_INPUT = 100;
 
     if (searchValue.length < MAX_LENGTH_INPUT) {
