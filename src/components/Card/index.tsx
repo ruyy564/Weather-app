@@ -53,8 +53,8 @@ const Card = ({
           <div className={css.header}>
             {city}, {country}
           </div>
-          <IconTemp text={temperature} />
-          <IconWind text={wind} />
+          {temperature && <IconTemp temp={temperature} />}
+          {wind && <IconWind speed={wind} />}
         </React.Fragment>
       )}
     </div>

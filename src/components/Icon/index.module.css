@@ -2,11 +2,35 @@
     display: flex;
     gap: 10px;
     align-items: center;
-
-
 }
 
 .icon {
     width: 30px;
     height: 30px;
+}
+
+.high {
+    color: var(--red);
+}
+
+.preHigh {
+    color: var(--orange);
+}
+
+.low {
+    color: var(--blue);
+}
+
+.preLow {
+    color: var(--light-blue);
+
+}
+
+.middle {
+    color: var(--light-orange);
+
+}
+
+.zero {
+    color: var(--white);
 }

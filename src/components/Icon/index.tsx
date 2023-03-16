@@ -1,46 +1,76 @@
 import { memo } from 'react';
-
 import { FaTemperatureHigh } from 'react-icons/fa';
 import { SiWindicss } from 'react-icons/si';
 import { TbTemperatureCelsius } from 'react-icons/tb';
 import { BsFillSearchHeartFill } from 'react-icons/bs';
 import { RxCross2 } from 'react-icons/rx';
 
+import getClasses from '../../helpers/getClasses';
+
 import css from './index.module.css';
 
 type Props = {
-  text: number | null;
-};
-
-type PropsWithClick = {
   onClick: () => void;
 };
 
-export const IconTemp = memo(({ text }: Props) => {
+export const IconTemp = memo(({ temp }: { temp: number }) => {
+  let className = css.root;
+
+  if (temp >= 20) {
+    className = getClasses(className, css.high);
+  }
+  if (temp < 20 && 10 <= temp) {
+    className = getClasses(className, css.preHigh);
+  }
+  if (temp < 10 && 0 < temp) {
+    className = getClasses(className, css.middle);
+  }
+  if (temp <= 0 && -10 < temp) {
+    className = getClasses(className, css.preLow);
+  }
+  if (temp <= -10) {
+    className = getClasses(className, css.low);
+  }
+
   return (
-    <div className={css.root}>
+    <div className={className}>
       <FaTemperatureHigh className={css.icon} />
       <span>
-        {text}
+        {temp}
         <TbTemperatureCelsius className={css.icon} />
       </span>
     </div>
   );
 });
 
-export const IconWind = memo(({ text }: Props) => {
+export const IconWind = memo(({ speed }: { speed: number }) => {
+  let className = css.root;
+
+  if (speed > 10) {
+    className = getClasses(className, css.high);
+  }
+  if (speed <= 10 && 5.4 < speed) {
+    className = getClasses(className, css.preHigh);
+  }
+  if (speed <= 5.4 && 0 < speed) {
+    className = getClasses(className, css.preLow);
+  }
+  if (speed <= 0.2 && 0 <= speed) {
+    className = getClasses(className, css.zero);
+  }
+
   return (
-    <div className={css.root}>
+    <div className={className}>
       <SiWindicss className={css.icon} />
-      <span>{text} m/s</span>
+      <span>{speed} m/s</span>
     </div>
   );
 });
 
-export const IconCross = memo(({ onClick }: PropsWithClick) => {
+export const IconCross = memo(({ onClick }: Props) => {
   return <RxCross2 className={css.icon} onClick={onClick} />;
 });
 
-export const IconSearch = memo(({ onClick }: PropsWithClick) => {
+export const IconSearch = memo(({ onClick }: Props) => {
   return <BsFillSearchHeartFill className={css.icon} onClick={onClick} />;
 });
