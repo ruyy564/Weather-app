@@ -10,7 +10,9 @@ type Props = {
 const Search = ({ fetchWeatherByCity }: Props) => {
   const [searchValue, setSearchValue] = useState('');
   const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(event.currentTarget.value);
+    if (searchValue.length < 255) {
+      setSearchValue(event.currentTarget.value);
+    }
   };
 
   const fetchHandler = () => {
