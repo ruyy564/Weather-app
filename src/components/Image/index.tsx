@@ -1,5 +1,3 @@
-import LazyLoad from 'react-lazy-load';
-
 import css from './index.module.css';
 
 type Props = {
@@ -7,11 +5,7 @@ type Props = {
 };
 
 const Image = ({ src }: Props) => {
-  return (
-    <LazyLoad>
-      <img className={css.image} src={src} alt="" />
-    </LazyLoad>
-  );
+  return <img className={css.image} src={src} alt="" loading="lazy" />;
 };
 
 export default Image;

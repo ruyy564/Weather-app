@@ -10,21 +10,21 @@ type Props = {
 };
 
 const Search = memo(({ fetchWeatherByCity }: Props) => {
-  const { searchValue, changeHandler, clear, clickHandler, keyDownHandler } =
+  const { searchValue, input, changeHandler, clear, keyDownHandler } =
     useSearch('', fetchWeatherByCity);
 
   return (
     <button className={css.root}>
       <input
         type="text"
-        placeholder="Input city..."
+        ref={input}
+        placeholder="Input your city..."
         className={css.search}
         value={searchValue}
         onChange={changeHandler}
         onKeyDown={keyDownHandler}
       />
       {searchValue && <IconCross onClick={clear} />}
-      <IconSearch onClick={clickHandler} />
     </button>
   );
 });

@@ -5,8 +5,12 @@
 }
 
 .icon {
-    width: 30px;
-    height: 30px;
+    min-width: 25px;
+    min-height: 25px;
+}
+
+.icon:active {
+    color: var(--light-black);
 }
 
 .high {

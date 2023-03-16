@@ -3,7 +3,7 @@ import { FaTemperatureHigh } from 'react-icons/fa';
 import { SiWindicss } from 'react-icons/si';
 import { TbTemperatureCelsius } from 'react-icons/tb';
 import { BsFillSearchHeartFill } from 'react-icons/bs';
-import { RxCross2 } from 'react-icons/rx';
+import { RxCrossCircled } from 'react-icons/rx';
 
 import getClasses from '../../helpers/getClasses';
 
@@ -68,7 +68,7 @@ export const IconWind = memo(({ speed }: { speed: number }) => {
 });
 
 export const IconCross = memo(({ onClick }: Props) => {
-  return <RxCross2 className={css.icon} onClick={onClick} />;
+  return <RxCrossCircled className={css.icon} onClick={onClick} />;
 });
 
 export const IconSearch = memo(({ onClick }: Props) => {

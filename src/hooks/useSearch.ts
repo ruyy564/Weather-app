@@ -1,10 +1,11 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef } from 'react';
 
 const useSearch = (
   initState: string,
   fetchWeatherByCity: (city: string) => void
 ) => {
   const [searchValue, setSearchValue] = useState(initState);
+  const input = useRef<HTMLInputElement>(null);
 
   const changeHandler = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -36,9 +37,17 @@ const useSearch = (
 
   const clear = useCallback(() => {
     setSearchValue('');
+    input.current?.focus();
   }, []);
 
-  return { searchValue, clear, clickHandler, keyDownHandler, changeHandler };
+  return {
+    searchValue,
+    input,
+    clear,
+    clickHandler,
+    keyDownHandler,
+    changeHandler,
+  };
 };
 
 export default useSearch;
