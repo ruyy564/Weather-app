@@ -5,7 +5,6 @@
   text-transform: uppercase;
   font-family: 'Anton', sans-serif;
   box-sizing: border-box;
-  color: var(--white);
   background: var(--black);
   --black: #1A1A1D;
   --light-black: #4E4E50;
@@ -23,7 +22,7 @@ textarea {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-
+  color: inherit;
 }
 
 input {
@@ -54,6 +53,8 @@ a {
   min-width: 300px;
   min-height: 400px;
   padding: 30px;
+  color: var(--white);
+
   /* overflow-y: scroll; */
 
 }

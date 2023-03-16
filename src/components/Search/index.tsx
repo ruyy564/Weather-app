@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { BsFillSearchHeartFill } from 'react-icons/bs';
+import { RxCross2 } from 'react-icons/rx';
 
 import css from './index.module.css';
 
@@ -9,9 +10,13 @@ type Props = {
 
 const Search = ({ fetchWeatherByCity }: Props) => {
   const [searchValue, setSearchValue] = useState('');
+  const input = useRef<HTMLInputElement>(null);
+
   const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (searchValue.length < 255) {
-      setSearchValue(event.currentTarget.value);
+    const MAX_LENGTH_INPUT = 100;
+
+    if (searchValue.length < MAX_LENGTH_INPUT) {
+      setSearchValue(event.currentTarget.value.slice(0, MAX_LENGTH_INPUT));
     }
   };
 
@@ -29,16 +34,23 @@ const Search = ({ fetchWeatherByCity }: Props) => {
     fetchHandler();
   };
 
+  const clear = () => {
+    setSearchValue('');
+    input.current?.focus();
+  };
+
   return (
     <button className={css.root}>
       <input
         type="text"
         placeholder="Your city..."
+        ref={input}
         className={css.search}
         value={searchValue}
         onChange={changeHandler}
         onKeyDown={keyDownHandler}
       />
+      {searchValue && <RxCross2 onClick={clear} className={css.searchIcon} />}
       <BsFillSearchHeartFill
         className={css.searchIcon}
         onClick={clickHandler}

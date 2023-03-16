@@ -3,12 +3,13 @@
     border-radius: 12px;
     width: 50%;
     min-height: 60px;
-    min-width: 200px;
+    min-width: 260px;
     padding: 10px;
     border: 5px solid var(--white);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 5px;
 }
 
 .search {
@@ -18,6 +19,11 @@
 }
 
 .searchIcon {
-    width: 35px;
-    height: 35px;
+    min-width: 35px;
+    min-height: 35px;
+    /* margin-left: 10px; */
+}
+
+.searchIcon:active {
+    color: var(--light-black);
 }

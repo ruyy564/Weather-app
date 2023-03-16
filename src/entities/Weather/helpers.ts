@@ -1,2 +1,2 @@
 export const getTemteratureToCelsius = (temperatureKelvin: number) =>
-  Math.floor(temperatureKelvin - 270);
+  Math.floor(temperatureKelvin - 273);
