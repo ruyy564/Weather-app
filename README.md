@@ -6,4 +6,5 @@
 
 ## Скрин:
 
-![погода](https://user-images.githubusercontent.com/87094243/225601609-42e9ffd4-1d4a-41ca-84f0-e293613bbaa4.png)
+<img src="https://user-images.githubusercontent.com/87094243/225601609-42e9ffd4-1d4a-41ca-84f0-e293613bbaa4.png" width="150" height="280">
+
