@@ -1,6 +1,6 @@
-import React, { useState, useRef } from 'react';
-import { BsFillSearchHeartFill } from 'react-icons/bs';
-import { RxCross2 } from 'react-icons/rx';
+import React, { useState, memo, useCallback } from 'react';
+
+import { IconCross, IconSearch } from '../Icon';
 
 import css from './index.module.css';
 
@@ -8,57 +8,55 @@ type Props = {
   fetchWeatherByCity: (city: string) => void;
 };
 
-const Search = ({ fetchWeatherByCity }: Props) => {
+const Search = memo(({ fetchWeatherByCity }: Props) => {
   const [searchValue, setSearchValue] = useState('');
-  const input = useRef<HTMLInputElement>(null);
 
-  const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    event.stopPropagation();
-    event.preventDefault();
-    const MAX_LENGTH_INPUT = 100;
+  const changeHandler = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      const MAX_LENGTH_INPUT = 100;
 
-    if (searchValue.length < MAX_LENGTH_INPUT) {
-      setSearchValue(event.currentTarget.value.slice(0, MAX_LENGTH_INPUT));
-    }
-  };
+      if (searchValue.length < MAX_LENGTH_INPUT) {
+        setSearchValue(event.currentTarget.value.slice(0, MAX_LENGTH_INPUT));
+      }
+    },
+    [searchValue.length]
+  );
 
-  const fetchHandler = () => {
+  const fetchHandler = useCallback(() => {
     fetchWeatherByCity(searchValue);
-  };
+  }, [fetchWeatherByCity, searchValue]);
 
-  const keyDownHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter') {
-      fetchHandler();
-    }
-  };
+  const keyDownHandler = useCallback(
+    (event: React.KeyboardEvent<HTMLInputElement>) => {
+      if (event.key === 'Enter') {
+        fetchHandler();
+      }
+    },
+    [fetchHandler]
+  );
 
-  const clickHandler = () => {
+  const clickHandler = useCallback(() => {
     fetchHandler();
-  };
+  }, [fetchHandler]);
 
-  const clear = () => {
+  const clear = useCallback(() => {
     setSearchValue('');
-    input.current?.focus();
-  };
+  }, []);
 
   return (
     <button className={css.root}>
       <input
         type="text"
         placeholder="Your city..."
-        ref={input}
         className={css.search}
         value={searchValue}
         onChange={changeHandler}
         onKeyDown={keyDownHandler}
       />
-      {searchValue && <RxCross2 onClick={clear} className={css.searchIcon} />}
-      <BsFillSearchHeartFill
-        className={css.searchIcon}
-        onClick={clickHandler}
-      />
+      {searchValue && <IconCross onClick={clear} />}
+      <IconSearch onClick={clickHandler} />
     </button>
   );
-};
+});
 
 export default Search;
