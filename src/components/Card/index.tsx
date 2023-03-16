@@ -9,6 +9,7 @@ import ErrorMessage from '../ErrorMessage';
 import Loader from '../Loader';
 import Image from '../Image';
 import { IconTemp, IconWind } from '../Icon';
+
 import css from './index.module.css';
 
 type Props = {

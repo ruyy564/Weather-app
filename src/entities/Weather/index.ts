@@ -33,7 +33,7 @@ export type ResponseData = {
   main: {
     temp: number; // температура, (К)
   };
-  name: string; //city
+  name: string; // город
   weather: [
     {
       main: string; // тип погоды : дождь, снег
