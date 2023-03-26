@@ -1,6 +1,7 @@
 import Image from '../Image';
 
 import image from '../../assets/cry.png';
+
 import css from './index.module.css';
 
 type Props = {

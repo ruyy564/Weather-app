@@ -1,13 +1,13 @@
-export const PRECIPITATION = {
-  Clouds: 'Clouds',
-  Rain: 'Rain',
-  Snow: 'Snow',
-  Haze: 'Haze',
-  Smoke: 'Smoke',
-  Mist: 'Mist',
-  Drizzle: 'Drizzle',
-  Clear: 'Clear',
-};
+export const enum PRECIPITATION {
+  Clouds = 'Clouds',
+  Rain = 'Rain',
+  Snow = 'Snow',
+  Haze = 'Haze',
+  Smoke = 'Smoke',
+  Mist = 'Mist',
+  Drizzle = 'Drizzle',
+  Clear = 'Clear',
+}
 
 export const PRECIPITATION_IMAGES = {
   [PRECIPITATION.Clouds]:

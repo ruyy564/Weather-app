@@ -16,11 +16,13 @@ export const fetchWeatherByCity = createAsyncThunk<
     const { data } = await $api.get<ResponseData>(
       `?q=${city}&exclude=current&appid=${API_KEY}`
     );
-    console.log(data);
+
     return data;
   } catch (e) {
     const error = e as AxiosError<{ message: string }>;
 
-    return thunkAPI.rejectWithValue(error.response?.data.message);
+    return thunkAPI.rejectWithValue(
+      error.response?.data.message || 'Unexpected error'
+    );
   }
 });
