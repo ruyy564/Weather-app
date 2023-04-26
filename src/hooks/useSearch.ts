@@ -1,11 +1,18 @@
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 
-const useSearch = (
-  initState: string,
-  fetchWeatherByCity: (city: string) => void
-) => {
-  const [searchValue, setSearchValue] = useState(initState);
+const useSearch = (fetchWeatherByCity: (city: string) => void) => {
+  const [searchValue, setSearchValue] = useState('');
   const input = useRef<HTMLInputElement>(null);
+
+  const setFocusOnInput = () => {
+    if (input.current) {
+      input.current.focus();
+    }
+  };
+
+  useEffect(() => {
+    setFocusOnInput();
+  }, []);
 
   const changeHandler = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -37,7 +44,7 @@ const useSearch = (
 
   const clear = useCallback(() => {
     setSearchValue('');
-    input.current?.focus();
+    setFocusOnInput();
   }, []);
 
   return {
@@ -47,6 +54,7 @@ const useSearch = (
     clickHandler,
     keyDownHandler,
     changeHandler,
+    setFocusOnInput,
   };
 };
 

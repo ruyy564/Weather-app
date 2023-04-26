@@ -68,7 +68,12 @@ export const IconWind = memo(({ speed }: { speed: number }) => {
 });
 
 export const IconCross = memo(({ onClick }: Props) => {
-  return <AiOutlineClose className={css.icon} onClick={onClick} />;
+  return (
+    <AiOutlineClose
+      className={getClasses(css.icon, css.cross)}
+      onClick={onClick}
+    />
+  );
 });
 
 export const IconSearch = memo(({ onClick }: Props) => {

@@ -9,6 +9,7 @@ import ErrorMessage from '../ErrorMessage';
 import Image from '../Image';
 import { IconTemp, IconWind } from '../Icon';
 import Loader from '../Loader';
+import { getCloses } from '../../entities/Weather/helpers';
 
 import css from './index.module.css';
 
@@ -31,6 +32,10 @@ const Card = ({
   temperature,
   wind,
 }: Props) => {
+  if (temperature && wind && precipitation) {
+    console.log(getCloses(temperature, wind, precipitation));
+  }
+
   return (
     <div className={css.root}>
       <ErrorMessage errorMessage={errorMessage} />

@@ -6,13 +6,16 @@
   font-family: 'Anton', sans-serif;
   box-sizing: border-box;
   --black: #1A1A1D;
-  --light-black: #4E4E50;
+  --light-black: #676769;
+  --gray: #8f8f8f;
+  --dark-gray: #2f2f32;
   --white: #FEFFFF;
   --orange: #E27D60;
   --light-orange: #FFB48F;
   --red: #C3073F;
   --blue: #5680E9;
   --light-blue: #84CEEB;
+  --pink: #d7428e;
 }
 
 button,
@@ -63,6 +66,4 @@ html, body, #root, .App {
   min-height: 480px;
   padding: 30px;
   gap: 15px;
-  /* overflow-y: scroll; */
-
 }

@@ -9,6 +9,42 @@ export const enum PRECIPITATION {
   Clear = 'Clear',
 }
 
+export const enum WEATHER {
+  Hot = 'Hot',
+  Warm = 'Warm',
+  Frost = 'Frost',
+  Cool = 'Cool',
+  Cold = 'Cold',
+  VeryCold = 'Very cold',
+}
+
+export const enum FEELING {
+  Cooler = 'Cooler',
+  LikeOnThermometer = 'Like on a thermometer',
+  Warmer = 'Warmer',
+}
+
+export const enum CLOTHING_FEATURE {
+  Absent = 'Absent',
+  Waterproof = 'Waterproof',
+  NeedHeaddress = 'Need a headdress',
+}
+
+export const enum CLOTHES {
+  Windbreaker = 'Windbreaker', //ветровка
+  Sneakers = 'Sneakers', //кроссовки
+  Trousers = 'Trousers', //брюки
+  Scarf = 'Scarf', //шарф
+  Cap = 'Cap', //шапка
+  Boots = 'Boots', //ботинки
+  WarmPants = 'WarmPants', //теплые штаны
+  WarmJacket = 'WarmJacket', //теплая куртка
+  Umbrella = 'Umbrella', //зонт
+  Hoody = 'Hoody', //толстовка
+  Undershirt = 'Undershirt', //майка
+  Shorts = 'Shorts', //шорты
+}
+
 export const PRECIPITATION_IMAGES = {
   [PRECIPITATION.Clouds]:
     'https://cdn-icons-png.flaticon.com/512/414/414825.png',

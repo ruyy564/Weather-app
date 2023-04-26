@@ -9,9 +9,7 @@
     min-height: 25px;
 }
 
-.icon:active {
-    color: var(--light-black);
-}
+
 
 .high {
     color: var(--red);
@@ -35,4 +33,18 @@
 
 .zero {
     color: var(--white);
+}
+
+.cross:hover {
+    color: var(--gray)
+}
+
+@media screen and (hover: none) {
+    .cross:hover {
+        color: inherit;
+    }
+}
+
+.icon:active {
+    color: var(--light-black);
 }

@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
 import useSearch from '../../hooks/useSearch';
-import { IconCross, IconSearch } from '../Icon';
+import { IconCross } from '../Icon';
 
 import css from './index.module.css';
 
@@ -10,15 +10,21 @@ type Props = {
 };
 
 const Search = memo(({ fetchWeatherByCity }: Props) => {
-  const { searchValue, input, changeHandler, clear, keyDownHandler } =
-    useSearch('', fetchWeatherByCity);
+  const {
+    searchValue,
+    input,
+    changeHandler,
+    clear,
+    keyDownHandler,
+    setFocusOnInput,
+  } = useSearch(fetchWeatherByCity);
 
   return (
-    <button className={css.root}>
+    <button className={css.root} onClick={setFocusOnInput}>
       <input
         type="text"
         ref={input}
-        placeholder="Input your city..."
+        placeholder="input your city..."
         className={css.search}
         value={searchValue}
         onChange={changeHandler}
