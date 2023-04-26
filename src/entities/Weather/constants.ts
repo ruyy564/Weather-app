@@ -1,3 +1,15 @@
+import Windbreaker from '../../assets/closes/Windbreaker.png';
+import Boots from '../../assets/closes/Boots.png';
+import Cap from '../../assets/closes/Cap.png';
+import Hoody from '../../assets/closes/Hoody.png';
+import Scarf from '../../assets/closes/Scarf.png';
+import Shorts from '../../assets/closes/Shorts.png';
+import Sneakers from '../../assets/closes/Sneakers.png';
+import Trousers from '../../assets/closes/Trousers.png';
+import Umbrella from '../../assets/closes/Umbrella.png';
+import Undershirt from '../../assets/closes/Undershirt.png';
+import Girl from '../../assets/girl.png';
+
 export const enum PRECIPITATION {
   Clouds = 'Clouds',
   Rain = 'Rain',
@@ -45,6 +57,10 @@ export const enum CLOTHES {
   Shorts = 'Shorts', //шорты
 }
 
+export enum PEOPLE {
+  Girl = 'Girl',
+}
+
 export const PRECIPITATION_IMAGES = {
   [PRECIPITATION.Clouds]:
     'https://cdn-icons-png.flaticon.com/512/414/414825.png',
@@ -61,4 +77,23 @@ export const PRECIPITATION_IMAGES = {
     'https://cdn-icons-png.flaticon.com/512/3076/3076129.png',
   [PRECIPITATION.Clear]:
     'https://cdn-icons-png.flaticon.com/512/6974/6974833.png',
+};
+
+export const CLOSES_IMAGES = {
+  [CLOTHES.Windbreaker]: Windbreaker,
+  [CLOTHES.Boots]: Boots,
+  [CLOTHES.Hoody]: Hoody,
+  [CLOTHES.Scarf]: Scarf,
+  [CLOTHES.Shorts]: Shorts,
+  [CLOTHES.Sneakers]: Sneakers,
+  [CLOTHES.Trousers]: Trousers,
+  [CLOTHES.Umbrella]: Umbrella,
+  [CLOTHES.Undershirt]: Undershirt,
+  [CLOTHES.WarmJacket]: Windbreaker,
+  [CLOTHES.WarmPants]: Trousers,
+  [CLOTHES.Cap]: Cap,
+};
+
+export const PEOPLE_IMAGES = {
+  [PEOPLE.Girl]: Girl,
 };

@@ -76,79 +76,88 @@ export const getCloses = (
   wind: number,
   precipitation: PRECIPITATION
 ) => {
-  const closes: CLOTHES[] = [];
+  let closes: CLOTHES[] = [];
   let clothingFeature: CLOTHING_FEATURE = getClothingFeature(precipitation);
   let weather: WEATHER | null = getWeather(temperature);
   let feeling: FEELING = getFeeling(wind);
 
   if (weather === WEATHER.Hot && clothingFeature === CLOTHING_FEATURE.Absent) {
-    closes.push(CLOTHES.Undershirt, CLOTHES.Sneakers, CLOTHES.Shorts);
+    closes = [CLOTHES.Undershirt, CLOTHES.Sneakers, CLOTHES.Shorts];
   }
 
   if (
     weather === WEATHER.Hot &&
     clothingFeature === CLOTHING_FEATURE.Waterproof
   ) {
-    closes.push(
+    closes = [
       CLOTHES.Undershirt,
       CLOTHES.Sneakers,
       CLOTHES.Shorts,
-      CLOTHES.Umbrella
-    );
+      CLOTHES.Umbrella,
+    ];
   }
 
   if (weather === WEATHER.Warm && clothingFeature === CLOTHING_FEATURE.Absent) {
-    closes.push(CLOTHES.Hoody, CLOTHES.Sneakers, CLOTHES.Trousers);
+    closes = [CLOTHES.Hoody, CLOTHES.Sneakers, CLOTHES.Trousers];
   }
 
   if (
     weather === WEATHER.Warm &&
     clothingFeature === CLOTHING_FEATURE.Waterproof
   ) {
-    closes.push(
+    closes = [
       CLOTHES.Hoody,
       CLOTHES.Sneakers,
       CLOTHES.Trousers,
-      CLOTHES.Umbrella
-    );
+      CLOTHES.Umbrella,
+    ];
   }
 
   if (weather === WEATHER.Warm && feeling === FEELING.Cooler) {
-    closes.push(CLOTHES.Windbreaker, CLOTHES.Sneakers, CLOTHES.Trousers);
+    closes = [CLOTHES.Windbreaker, CLOTHES.Sneakers, CLOTHES.Trousers];
   }
 
   if (weather === WEATHER.Cool) {
-    closes.push(CLOTHES.Windbreaker, CLOTHES.Sneakers, CLOTHES.Trousers);
+    closes = [CLOTHES.Windbreaker, CLOTHES.Sneakers, CLOTHES.Trousers];
   }
 
   if (weather === WEATHER.Cold) {
-    closes.push(
+    closes = [
       CLOTHES.Windbreaker,
       CLOTHES.Sneakers,
       CLOTHES.Trousers,
       CLOTHES.Scarf,
-      CLOTHES.Cap
-    );
+      CLOTHES.Cap,
+    ];
   }
 
   if (weather === WEATHER.Frost) {
-    closes.push(
+    closes = [
       CLOTHES.WarmJacket,
       CLOTHES.Boots,
       CLOTHES.WarmPants,
       CLOTHES.Scarf,
-      CLOTHES.Cap
-    );
+      CLOTHES.Cap,
+    ];
   }
 
   if (weather === WEATHER.VeryCold) {
-    closes.push(
+    closes = [
       CLOTHES.WarmJacket,
       CLOTHES.Boots,
       CLOTHES.WarmPants,
       CLOTHES.Scarf,
-      CLOTHES.Cap
-    );
+      CLOTHES.Cap,
+    ];
   }
+
+  if (weather === WEATHER.Hot && clothingFeature === CLOTHING_FEATURE.Absent) {
+    closes = [CLOTHES.Undershirt, CLOTHES.Sneakers, CLOTHES.Shorts];
+  }
+
+  if (clothingFeature === CLOTHING_FEATURE.Waterproof) {
+    closes.push(CLOTHES.Umbrella);
+  }
+
   return closes;
 };
