@@ -1,14 +1,25 @@
 {
   "files": {
-    "main.css": "/Weather-app/static/css/main.6136de11.css",
-    "main.js": "/Weather-app/static/js/main.4fd75e28.js",
+    "main.css": "/Weather-app/static/css/main.8c35fccf.css",
+    "main.js": "/Weather-app/static/js/main.a5f97b5a.js",
+    "static/media/girl.png": "/Weather-app/static/media/girl.1e8894dc67e72dcadc5b.png",
+    "static/media/Cap.png": "/Weather-app/static/media/Cap.d9e8495731833439574c.png",
+    "static/media/Hoody.png": "/Weather-app/static/media/Hoody.8e201cc689aa5c86875d.png",
+    "static/media/Windbreaker.png": "/Weather-app/static/media/Windbreaker.72ab9173da04b30e3de7.png",
+    "static/media/Umbrella.png": "/Weather-app/static/media/Umbrella.27650d6eaffe918f5dc8.png",
+    "static/media/Trousers.png": "/Weather-app/static/media/Trousers.ed946d50cf2c5747d26e.png",
     "static/media/cry.png": "/Weather-app/static/media/cry.20335e3ffd75a6d531cf.png",
+    "static/media/Scarf.png": "/Weather-app/static/media/Scarf.4d1ed7d42dc68b5b465c.png",
+    "static/media/Undershirt.png": "/Weather-app/static/media/Undershirt.1a1196bf3f6464cf765b.png",
+    "static/media/Shorts.png": "/Weather-app/static/media/Shorts.173f20266f9cfe3cfd20.png",
+    "static/media/Sneakers.png": "/Weather-app/static/media/Sneakers.041d939991ac4f7e88db.png",
+    "static/media/Boots.png": "/Weather-app/static/media/Boots.67e9674503aa750abf73.png",
     "index.html": "/Weather-app/index.html",
-    "main.6136de11.css.map": "/Weather-app/static/css/main.6136de11.css.map",
-    "main.4fd75e28.js.map": "/Weather-app/static/js/main.4fd75e28.js.map"
+    "main.8c35fccf.css.map": "/Weather-app/static/css/main.8c35fccf.css.map",
+    "main.a5f97b5a.js.map": "/Weather-app/static/js/main.a5f97b5a.js.map"
   },
   "entrypoints": [
-    "static/css/main.6136de11.css",
-    "static/js/main.4fd75e28.js"
+    "static/css/main.8c35fccf.css",
+    "static/js/main.a5f97b5a.js"
   ]
 }
