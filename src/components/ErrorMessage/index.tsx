@@ -1,6 +1,7 @@
 import Image from '../Image';
 
 import image from '../../assets/cry.png';
+import imageLow from '../../assets/cry-low.png';
 
 import css from './index.module.css';
 
@@ -15,7 +16,13 @@ const ErrorMessage = ({ errorMessage }: Props) => {
 
   return (
     <div className={css.root}>
-      <Image src={image} />
+      <Image
+        src={image}
+        placeholder={imageLow}
+        width="150px"
+        height="150px"
+        alt="Ooops...Error image"
+      />
       <span className={css.text}>{errorMessage}</span>
     </div>
   );

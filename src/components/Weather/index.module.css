@@ -1,0 +1,14 @@
+.header {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.weather {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    justify-content: flex-start;
+    gap: 5px;
+    min-width: 160px;
+}

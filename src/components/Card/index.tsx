@@ -1,18 +1,11 @@
 import React from 'react';
 
+import Weather from '../Weather';
+import PeopleCloses from '../PeopleCloses';
 import { STATUS } from '../../constants';
-import {
-  PRECIPITATION,
-  PRECIPITATION_IMAGES,
-  PEOPLE_IMAGES,
-  CLOSES_IMAGES,
-  PEOPLE,
-} from '../../entities/Weather/constants';
+import { PRECIPITATION } from '../../entities/Weather/constants';
 import ErrorMessage from '../ErrorMessage';
-import Image from '../Image';
-import { IconTemp, IconWind } from '../Icon';
 import Loader from '../Loader';
-import { getCloses } from '../../entities/Weather/helpers';
 
 import css from './index.module.css';
 
@@ -24,31 +17,6 @@ type Props = {
   country: string | null;
   errorMessage: string | null;
   status: STATUS | null;
-};
-
-type PeopleClosesProps = {
-  temperature: number | null;
-  wind: number | null;
-  precipitation: PRECIPITATION | null;
-};
-
-const PeopleCloses = ({
-  precipitation,
-  temperature,
-  wind,
-}: PeopleClosesProps) => {
-  if (temperature && wind && precipitation) {
-    return (
-      <div className={css.closes}>
-        <img src={PEOPLE_IMAGES[PEOPLE.Girl]} alt="girl" />
-        {getCloses(temperature, wind, precipitation).map((close, index) => (
-          <img src={CLOSES_IMAGES[close]} alt={close} key={index} />
-        ))}
-      </div>
-    );
-  }
-
-  return null;
 };
 
 const Card = ({
@@ -63,33 +31,23 @@ const Card = ({
   return (
     <div className={css.root}>
       <ErrorMessage errorMessage={errorMessage} />
-      <Loader status={status} />
       <div className={css.wrapper}>
-        <PeopleCloses
+        <Loader status={status} />
+        {temperature && wind && precipitation && (
+          <PeopleCloses
+            temperature={temperature}
+            wind={wind}
+            precipitation={precipitation}
+          />
+        )}
+        <Weather
           temperature={temperature}
           wind={wind}
           precipitation={precipitation}
+          status={status}
+          city={city}
+          country={country}
         />
-        <div className={css.weather}>
-          {precipitation && (
-            <Image
-              src={PRECIPITATION_IMAGES[precipitation]}
-              width={'130px'}
-              height={'130px'}
-            />
-          )}
-
-          {status === STATUS.success && (
-            <React.Fragment>
-              <div className={css.header}>
-                {city}, {country}
-              </div>
-
-              {temperature !== null && <IconTemp temp={temperature} />}
-              {wind !== null && <IconWind speed={wind} />}
-            </React.Fragment>
-          )}
-        </div>
       </div>
     </div>
   );

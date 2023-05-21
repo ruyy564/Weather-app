@@ -98,7 +98,7 @@ export const getCloses = (
   }
 
   if (weather === WEATHER.Warm && clothingFeature === CLOTHING_FEATURE.Absent) {
-    closes = [CLOTHES.Hoody, CLOTHES.Sneakers, CLOTHES.Trousers];
+    closes = [CLOTHES.Trousers, CLOTHES.Hoody, CLOTHES.Sneakers];
   }
 
   if (
@@ -106,9 +106,9 @@ export const getCloses = (
     clothingFeature === CLOTHING_FEATURE.Waterproof
   ) {
     closes = [
+      CLOTHES.Trousers,
       CLOTHES.Hoody,
       CLOTHES.Sneakers,
-      CLOTHES.Trousers,
       CLOTHES.Umbrella,
     ];
   }

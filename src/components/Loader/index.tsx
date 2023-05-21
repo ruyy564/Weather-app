@@ -1,5 +1,6 @@
+import classNames from 'classnames';
+
 import { STATUS } from '../../constants';
-import getClasses from '../../helpers/getClasses';
 
 import css from './index.module.css';
 
@@ -11,7 +12,7 @@ const Loader = ({ status }: Props) => {
   return (
     <div
       className={
-        status === STATUS.loading ? getClasses(css.root, css.active) : css.root
+        status === STATUS.loading ? classNames(css.root, css.active) : css.root
       }
     >
       <div className={css.loader}></div>

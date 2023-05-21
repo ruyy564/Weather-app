@@ -4,8 +4,7 @@ import { SiWindicss } from 'react-icons/si';
 import { TbTemperatureCelsius } from 'react-icons/tb';
 import { BsFillSearchHeartFill } from 'react-icons/bs';
 import { AiOutlineClose } from 'react-icons/ai';
-
-import getClasses from '../../helpers/getClasses';
+import classNames from 'classnames';
 
 import css from './index.module.css';
 
@@ -17,19 +16,19 @@ export const IconTemp = memo(({ temp }: { temp: number }) => {
   let className = css.root;
 
   if (temp >= 20) {
-    className = getClasses(className, css.high);
+    className = classNames(className, css.high);
   }
   if (temp < 20 && 10 <= temp) {
-    className = getClasses(className, css.preHigh);
+    className = classNames(className, css.preHigh);
   }
   if (temp < 10 && 0 < temp) {
-    className = getClasses(className, css.middle);
+    className = classNames(className, css.middle);
   }
   if (temp <= 0 && -10 < temp) {
-    className = getClasses(className, css.preLow);
+    className = classNames(className, css.preLow);
   }
   if (temp <= -10) {
-    className = getClasses(className, css.low);
+    className = classNames(className, css.low);
   }
 
   return (
@@ -47,16 +46,16 @@ export const IconWind = memo(({ speed }: { speed: number }) => {
   let className = css.root;
 
   if (speed > 10) {
-    className = getClasses(className, css.high);
+    className = classNames(className, css.high);
   }
   if (speed <= 10 && 5.4 < speed) {
-    className = getClasses(className, css.preHigh);
+    className = classNames(className, css.preHigh);
   }
   if (speed <= 5.4 && 0 < speed) {
-    className = getClasses(className, css.preLow);
+    className = classNames(className, css.preLow);
   }
   if (speed <= 0.2 && 0 <= speed) {
-    className = getClasses(className, css.zero);
+    className = classNames(className, css.zero);
   }
 
   return (
@@ -70,7 +69,7 @@ export const IconWind = memo(({ speed }: { speed: number }) => {
 export const IconCross = memo(({ onClick }: Props) => {
   return (
     <AiOutlineClose
-      className={getClasses(css.icon, css.cross)}
+      className={classNames(css.icon, css.cross)}
       onClick={onClick}
     />
   );
