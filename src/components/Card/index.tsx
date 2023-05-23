@@ -31,24 +31,30 @@ const Card = ({
   return (
     <div className={css.root}>
       <ErrorMessage errorMessage={errorMessage} />
-      <div className={css.wrapper}>
-        <Loader status={status} />
-        {temperature && wind && precipitation && (
-          <PeopleCloses
-            temperature={temperature}
-            wind={wind}
-            precipitation={precipitation}
-          />
-        )}
-        <Weather
-          temperature={temperature}
-          wind={wind}
-          precipitation={precipitation}
-          status={status}
-          city={city}
-          country={country}
-        />
-      </div>
+      <Loader status={status} />
+
+      {status === STATUS.success && (
+        <div className={css.card}>
+          <h2>The weather</h2>
+          <div className={css.wrapper}>
+            {temperature && wind && precipitation && (
+              <PeopleCloses
+                temperature={temperature}
+                wind={wind}
+                precipitation={precipitation}
+              />
+            )}
+            <Weather
+              temperature={temperature}
+              wind={wind}
+              precipitation={precipitation}
+              status={status}
+              city={city}
+              country={country}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
